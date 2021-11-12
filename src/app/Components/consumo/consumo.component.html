@@ -11,7 +11,7 @@
 
 <mat-select  class="Rectangle-26-Copy-23" >
       
-    <mat-option *ngFor="let con of conversion" [value]="con"  (click)="valor = true; objeto1=con.NumeroFactura; objeto2=con.Fecha;detalle1=con.Detalle; Angular()">
+    <mat-option *ngFor="let con of conversion" [value]="con"  (click)="valor = true; objeto1=con.NumeroFactura; objeto2=con.Fecha; Angular(con.Detalle)">
       <span *ngIf="con.NombreCliente !='[object Object]'" >{{con.NombreCliente}} </span>
       <span *ngIf="con.NombreCliente =='[object Object]'" >{{con.NombreCliente.clientName}} </span>
     </mat-option>
@@ -20,9 +20,9 @@
 
 <div *ngIf="valor">el numero de su factura  es: {{objeto1}}</div>
 <div *ngIf="valor">la fecha de su factura  es:  {{objeto2 | date:'dd/MM/yyyy' }}</div>
-<!--div *ngIf="valor">{{d2.Item}} </div-->
-<div *ngIf="valor">
-  <ul *ngFor="let d1 of detalle1">
-    <li>{{d1}} </li>
-  </ul>
-</div>
+<!--div *ngIf="valor">detalle1: {{detalle1}}</div-->
+<!--div *ngIf="valor">detalle2: {{detalle2}}</div-->
+<button (click)="crear()">
+  crear_facturas
+</button>
+
