@@ -1,12 +1,6 @@
 
 
-<!--select class="form-select" >
-    <option *ngFor="let con of conversion" >
-       <div *ngIf="con.NombreCliente !='[object Object]'" > {{con.NombreCliente}}</div >
-       <div *ngIf="con.NombreCliente =='[object Object]'" > {{con.NombreCliente.clientName}}</div>
-    </option>
-   
-</select-->
+
 <h3>Usuarios</h3>
 
 <mat-select  class="Rectangle-26-Copy-23" >
@@ -20,9 +14,32 @@
 
 <div *ngIf="valor">el numero de su factura  es: {{objeto1}}</div>
 <div *ngIf="valor">la fecha de su factura  es:  {{objeto2 | date:'dd/MM/yyyy' }}</div>
-<!--div *ngIf="valor">detalle1: {{detalle1}}</div-->
-<!--div *ngIf="valor">detalle2: {{detalle2}}</div-->
-<button (click)="crear()">
+
+<br>
+<div >
+  <div >
+<button (click)="crear(); ver=true">
   crear_facturas
 </button>
-
+</div>
+<br>
+<div >
+ <button *ngIf="ver" (click)="ver1=true">
+  ver
+</button>
+<br>
+<div *ngIf="ver1">
+   <div *ngFor="let c2 of cv2">
+       <div>
+         <p>Número de factura: {{c2.numero}}</p>
+         <p>Fecha de factura: {{c2.fecha | date:'dd/MM/yyyy' }}</p>
+         <p>Nombre del cliente: {{c2.nombre}}</p>
+         <p>Tipo tipo de pago: {{c2.Tipo}}</p>
+         <p>Total con IVA: {{c2.TotalconIva | currency}}</p>
+         <p>Total sin IVA: {{c2.TotalSinIva | currency}}</p>
+       </div>
+       <br>
+   </div>
+</div>
+</div>
+</div>
